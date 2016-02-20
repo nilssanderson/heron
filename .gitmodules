@@ -1,0 +1,4 @@
+[submodule "gecko"]
+    path = gecko
+    url = https://github.com/nilssanderson/gecko.git
+    branch = master
