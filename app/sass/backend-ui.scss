@@ -1,0 +1,9 @@
+$testing: purple;
+
+nav {
+    &#layout-mainmenu {
+        &.navbar {
+            background-color: $testing;
+        }
+    }
+}
