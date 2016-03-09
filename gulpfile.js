@@ -38,15 +38,15 @@ var COMPATIBILITY     = ['last 2 versions', 'ie >= 9'];
 // =============================================================================
 // Paths
 // =============================================================================
-var corePath          = '_core';
-var srcPath           = 'app';
-var buildPath         = 'build';
+var corePath          = './assets/_core';
+var srcPath           = './assets/app';
+var buildPath         = './assets/build';
 
 
 // =============================================================================
 // Server URL
 // =============================================================================
-var dynamicServerURL  = 'http://nilssanderson.local';
+var dynamicServerURL  = 'http://mogulminions.local';
 
 
 // =============================================================================
@@ -162,7 +162,7 @@ gulp.task('sassToJson', function() {
 // Write file to Database
 // =============================================================================
 gulp.task('writeToDatabase', shell.task([
-    'bash /Users/nilssanderson/Code/Personal/nilssanderson/themes/heron/app/backend-ui/backend-ui.sh;',
+    'bash /Users/nilssanderson/Code/MogulMinions/mogulminions/themes/heron/assets/app/backend-ui/backend-ui.sh;',
     // 'ssh vagrant@127.0.0.1 -p 2222 "mysql -uhomestead -psecret nilssanderson < /home/vagrant/Code/Personal/nilssanderson/themes/heron/app/backend-ui/backend-ui.sql"',
     'echo database was populated successfully'
 ]));

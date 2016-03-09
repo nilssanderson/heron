@@ -1,12 +1,12 @@
 <?php
 
-    $database_name = 'nilssanderson';
+    $database_name = 'mogulminions';
     $table_name = 'system_settings';
     $username = 'homestead';
     $password = 'secret';
 
-    $ui_settings = './build/backend-ui/backend-ui-settings.json';
-    $ui_styles = './build/backend-ui/backend-ui.css';
+    $ui_settings = './assets/build/backend-ui/backend-ui-settings.json';
+    $ui_styles = './assets/build/backend-ui/backend-ui.css';
 
     //connect to mysql db
     $con = mysql_connect($username, $password, "") or die('Could not connect: ' . mysql_error());
