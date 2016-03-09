@@ -1,0 +1,15 @@
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{ 'home'|page }}" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <!-- <li><a href="#intro"><i class="material-icons">glass</i></a></li>
+                <li><a href="#test"><i class="material-icons">test</i></a></li>
+                <li><a href="#cards"><i class="material-icons">card</i></a></li>
+                <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li> -->
+                <li class="{% if this.page.id == 'components' %}active{% endif %}"><a href="{{ 'components'|page }}">Components</a></li>
+                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Basic concepts</a></li>
+                <li class="{% if this.page.id == 'ajax' %}active{% endif %}"><a href="{{ 'ajax'|page }}">AJAX framework</a></li>
+                <li class="{% if this.page.id == 'plugins' %}active{% endif %}"><a href="{{ 'plugins'|page }}">Plugin components</a></li>
+            </ul>
+        </div>
+    </nav>

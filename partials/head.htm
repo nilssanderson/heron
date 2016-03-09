@@ -1,0 +1,45 @@
+    <meta charset="utf-8">
+
+    <title>OctoberCMS - {{ this.page.title }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="author" content="OctoberCMS">
+    <meta name="generator" content="OctoberCMS">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+
+    <!-- Personal -->
+    <link rel='author' href='https://plus.google.com/USERNAME' />
+
+    <!-- Company -->
+    <link rel='publisher' href='https://plus.google.com/USERNAME' />
+
+    <!-- Social Media -->
+    <meta property='og:title' content='95 characters of message matching text with a call to action goes here' />
+    <meta property='og:type' content='article' />
+    <meta property='og:image' content='http://www.iacquire.com/some-thumbnail.jpg' />
+    <meta property='og:url' content='http://blog.iacquire.com' />
+    <meta property='og:description' content='297 characters of message matching text with a call to action goes here' />
+    <!-- <meta property='fb:admins' content='USER_ID' /> -->
+
+    <!-- Twitter Cards -->
+    <meta name='twitter:card' content='summary'>
+    <meta name='twitter:url' content='http://www.nytimes.com/2012/02/19/arts/music/amid-police-presence-fans-congregate-for-whitney-houstons-funeral-in-newark.html'>
+    <meta name='twitter:title' content='Parade of Fans for Houston’s Funeral'>
+    <meta name='twitter:description' content='NEWARK – The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.'>
+    <meta name='twitter:image' content='http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg'>
+
+    {% styles %}
+    <link href="{{ [
+        'assets/build/css/materialize.css',
+        'assets/build/css/app.css'
+    ]|theme }}" rel="stylesheet">
+
+    <!-- Required to use Material Icons ligature format -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
