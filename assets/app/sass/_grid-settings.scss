@@ -1,0 +1,16 @@
+@import "../../_core/sass/bourbon/bourbon";
+@import "../../_core/sass/neat/neat-helpers";
+@import "variables";
+
+// Change the grid settings
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: 1200px;
+
+// Define your breakpoints
+$mobile-large: new-breakpoint(max-width $small 4);
+$tablet-small: new-breakpoint(max-width $medium 8);
+$tablet-large: new-breakpoint(max-width $large 12);
+$screen-small: new-breakpoint(max-width $xlarge 12);
+$screen-large: new-breakpoint(max-width $xxlarge 12);

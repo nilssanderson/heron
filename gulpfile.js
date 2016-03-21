@@ -85,19 +85,6 @@ gulp.task('html', function() {
 // In production, the CSS is compressed
 // Runs 2 tasks, a core and a src as to seperate the core updates
 // =============================================================================
-gulp.task('coreSass', function() {
-    return gulp
-        .src(corePath + '/sass/materialize.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass()).on('error', notify.onError(function (error) {
-            return "Problem file : " + error.message;
-        }))
-        .pipe(autoprefixer())
-        .pipe(cssnano())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(buildPath + '/css'));
-});
-
 gulp.task('sass', function() {
     return gulp
         .src(srcPath + '/sass/app.scss')
@@ -113,7 +100,7 @@ gulp.task('sass', function() {
 
 gulp.task('backendSass', function() {
     return gulp
-        .src(srcPath + '/sass/backend-ui.scss')
+        .src(srcPath + '/backend-ui/backend-ui.scss')
         .pipe(sass()).on('error', notify.onError(function (error) {
             return "Problem file : " + error.message;
         }))
@@ -121,6 +108,15 @@ gulp.task('backendSass', function() {
         .pipe(cssnano())
         .pipe(gulp.dest(srcPath + '/backend-ui'));
 });
+
+// gulp.task('backendSettingsSass', function() {
+//     return gulp
+//         .src(srcPath + '/sass/backend-ui-settings.scss')
+//         .pipe(sass()).on('error', notify.onError(function (error) {
+//             return "Problem file : " + error.message;
+//         }))
+//         .pipe(gulp.dest(srcPath + '/backend-ui'));
+// });
 
 
 // =============================================================================
@@ -132,7 +128,7 @@ gulp.task('coreJavascript', function() {
     return gulp
         .src(corePath + '/js/**/*.js')
         .pipe(sourcemaps.init())
-        .pipe(concat('materialize.js'))
+        .pipe(concat('core.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(buildPath + '/js'));
 });
@@ -150,12 +146,12 @@ gulp.task('javascript', function() {
 // =============================================================================
 // Write SASS file to JSON
 // =============================================================================
-gulp.task('sassToJson', function() {
-    return gulp
-        .src(srcPath + '/sass/backend-ui-settings.scss')
-        .pipe(sassjson())
-        .pipe(gulp.dest(buildPath + '/backend-ui'));
-});
+// gulp.task('sassToJson', function() {
+//     return gulp
+//         .src(srcPath + '/sass/backend-ui-settings.scss')
+//         .pipe(sassjson())
+//         .pipe(gulp.dest(srcPath + '/backend-ui'));
+// });
 
 
 // =============================================================================
@@ -205,12 +201,11 @@ gulp.task('fonts', function() {
 // =============================================================================
 gulp.task('build', function(done) {
     sequence('clean', [
-        'coreSass',
         'sass',
         'coreFonts',
         'fonts',
         'backendSass',
-        'sassToJson',
+        // 'backendSettingsSass',
         'writeToDatabase',
         'coreJavascript',
         'javascript',
@@ -253,8 +248,8 @@ gulp.task('dynamic-server', ['build'], function() {
 // =============================================================================
 gulp.task('default', ['build', 'server'], function() {
     gulp.watch([srcPath + '/*.html'], ['html', browser.reload]);
-    gulp.watch([srcPath + '/backend-ui/*.sh'], ['backendSass', 'sassToJson', 'writeToDatabase', browser.reload]);
-    gulp.watch([srcPath + '/sass/**/*.scss'], ['coreSass', 'sass', 'backendSass', 'sassToJson', 'writeToDatabase', browser.reload]);
+    gulp.watch([srcPath + '/backend-ui/**/*'], ['backendSass', 'writeToDatabase', browser.reload]);
+    gulp.watch([srcPath + '/sass/**/*.scss'], ['sass', browser.reload]);
     gulp.watch([srcPath + '/fonts/**/*.fonts'], ['coreFonts', 'fonts', browser.reload]);
     gulp.watch([srcPath + '/js/**/*.js'], ['coreJavascript', 'javascript', browser.reload]);
     gulp.watch([srcPath + '/img/**/*'], ['images', browser.reload]);
@@ -266,8 +261,8 @@ gulp.task('default', ['build', 'server'], function() {
 // =============================================================================
 gulp.task('dynamic', ['build', 'dynamic-server'], function() {
     gulp.watch([srcPath + '/*.html'], ['html', browser.reload]);
-    gulp.watch([srcPath + '/backend-ui/*.sh'], ['backendSass', 'sassToJson', 'writeToDatabase', browser.reload]);
-    gulp.watch([srcPath + '/sass/**/*.scss'], ['coreSass', 'sass', 'backendSass', 'sassToJson', 'writeToDatabase', browser.reload]);
+    gulp.watch([srcPath + '/backend-ui/**/*'], ['backendSass', 'writeToDatabase', browser.reload]);
+    gulp.watch([srcPath + '/sass/**/*.scss'], ['sass', browser.reload]);
     gulp.watch([srcPath + '/fonts/**/*.fonts'], ['coreFonts', 'fonts', browser.reload]);
     gulp.watch([srcPath + '/js/**/*.js'], ['coreJavascript', 'javascript', browser.reload]);
     gulp.watch([srcPath + '/img/**/*'], ['images', browser.reload]);

@@ -1,0 +1,111 @@
+// // // Variables
+// $base-font-size: 14px;
+// //
+// // // Sidebar
+// $primary-sidebar-width: 200px;
+// $primary-sidebar-background-color: #464F77;
+// $primary-sidebar-item-color: #fff;
+//
+// $primary-sidebar-item-accent-color: #3EC0E0;
+//
+// $secondary-sidebar-background-color: #FCFCFD;
+// //
+// // // OctoberCMS Main Navbar
+// $navbar-background-color: #464F77;
+//
+// $navbar-item-color: #fff;
+// $navbar-item-background-color: #3EC0E0;
+// $navbar-item-background-hover-color: darken($navbar-item-color, 10%);
+// $navbar-item-background-selected-color: darken($navbar-item-color, 30%);
+//
+// $navbar-item-accent-color: #F0F1F3;
+// //
+// // // Code
+// //
+// // // OctoberCMS Main Navbar
+// nav {
+//     &#layout-mainmenu.navbar {
+//         background: darken($navbar-background-color, 15%) url(/modules/backend/assets/images/october-logo-transparent.svg) 22px 22px no-repeat;
+//         background-size: 100px;
+//         padding-left: $primary-sidebar-width;
+//
+//         // Menu Items wrapper
+//         .nav {
+//             li {
+//                 // background-color: $navbar-background-color;
+//                 color: $navbar-item-color;
+//                 // border: 1px solid $navbar-item-accent-color;
+//                 border-width: 0 1px;
+//                 font-size: $base-font-size;
+//                 padding: 0 1em;
+//             }
+//         }
+//     }
+// }
+// //
+// // // OctoberCMS Sidebar
+// // .layout {
+// //     > .layout-cell.width-120 {
+// //         width: $primary-sidebar-width;
+// //     }
+// //
+// //     > .layout-cell.width-300 {
+// //         background-color: $secondary-sidebar-background-color;
+// //         width: $primary-sidebar-width + 100px;
+// //
+// //         .control-toolbar {
+// //
+// //         }
+// //     }
+// //
+// //     #layout-sidenav {
+// //         padding: 50px 0 0;
+// //
+// //         ul {
+// //             li {
+// //                 padding: 0 1em;
+// //                 text-align: left;
+// //
+// //                 &.active,
+// //                 &:hover {
+// //                     a i {
+// //                         color: $primary-sidebar-item-accent-color;
+// //                     }
+// //                 }
+// //
+// //                 &.active {
+// //                     background-color: darken($primary-sidebar-background-color, 5%);
+// //
+// //                     &:after {
+// //                         border-bottom: 10px solid transparent;
+// //                         border-right: 10px solid #ECF0F1;
+// //                         border-top: 10px solid transparent;
+// //                         bottom: 0;
+// //                         // content: \'\'; Added at the bottom of the file as not to
+// //                         // break the syntax highlighting in code editors
+// //                         display: block;
+// //                         height: 0;
+// //                         position: absolute;
+// //                         right: 0;
+// //                         top: 50%;
+// //                         transform: translateY(-50%);
+// //                         width: 0;
+// //                     }
+// //                 }
+// //
+// //                 a {
+// //                     i {
+// //                         display: inline-block;
+// //                         font-size: 20px;
+// //                         margin: 0;
+// //                         vertical-align: middle;
+// //                         width: 35px;
+// //                     }
+// //                 }
+// //             }
+// //         }
+// //     }
+// // }
+// //
+// // // Need to escape quotes for DB or big problems will arise
+// // .layout #layout-sidenav ul li.active:after { content: \'\'; }

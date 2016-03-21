@@ -10,18 +10,18 @@
 	DB_USER="homestead"
 	DB_PASS="secret"
 
-    UI_SETTINGS_PATH="./assets/build/backend-ui/backend-ui-settings.json"
-    UI_STYLES_PATH="./assets/build/backend-ui/backend-ui.css"
-
     CURRENT_PATH="/Users/nilssanderson/Code/MogulMinions/mogulminions/themes/heron"
     VAGRANT_PATH="/Users/nilssanderson/Homestead"
 
+	UI_SETTINGS_PATH="$CURRENT_PATH/assets/app/backend-ui/backend-ui-settings.json"
+    UI_STYLES_PATH="$CURRENT_PATH/assets/app/backend-ui/backend-ui.css"
+
     APP_NAME="App Name"
     APP_TAGLINE="Testing a long Tagline"
-    PRIMARY_COLOR_LIGHT="#000000"
-    PRIMARY_COLOR_DARK="#000000"
-    SECONDARY_COLOR_LIGHT="#00ff00"
-    SECONDARY_COLOR_DARK="#00ffff"
+    PRIMARY_COLOR_LIGHT="#464F77"
+    PRIMARY_COLOR_DARK="#464F77"
+    SECONDARY_COLOR_LIGHT="#464F77"
+    SECONDARY_COLOR_DARK="#464F77"
 
     CUSTOMCSS=$(<./assets/app/backend-ui/backend-ui.css)
 
@@ -44,3 +44,6 @@
     echo "Writing $FILE_NAME to Database"
     CMD="mysql -u$DB_USER -p$DB_PASS $DB_NAME < $VAGRANT_FILE_NAME"
     ssh $VAGRANT_HOST -p 2222 "$CMD"
+
+	# Flush Cache
+	ssh $VAGRANT_HOST -p 2222 "cd ~/Code/MogulMinions/mogulminions && php artisan cache:clear"

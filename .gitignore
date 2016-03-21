@@ -1,10 +1,6 @@
 
 # Created by https://www.gitignore.io/api/node,octobercms,osx,sass
 
-### Project ###
-build
-
-
 ### Node ###
 # Logs
 logs

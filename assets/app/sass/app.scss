@@ -1,5 +1,32 @@
-$test: #fff;
+/* ---------
+    Core
+   --------- */
 
-body {
-    background: $test;
-}
+    // Bourbon, Neat and Bitters
+    @import "../../_core/sass/bourbon/bourbon";
+    @import "grid-settings";
+    @import "../../_core/sass/neat/neat";
+    @import "../../_core/sass/base/base";
+
+    // Core
+    @import "../../_core/sass/__index.scss";
+
+
+/* ---------
+    Custom
+   --------- */
+
+    // Base
+    @import "variables.scss";
+
+    // Elements
+    @import "elements/__index.scss";
+
+    // Layout
+    @import "layout/__index.scss";
+
+    // Pages
+    @import "pages/__index.scss";
+
+    // Theme
+    @import "theme/__index.scss";

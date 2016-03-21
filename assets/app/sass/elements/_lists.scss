@@ -1,0 +1,78 @@
+.blog-post-list {
+    $base-border-radius: 3px !default;
+    $base-spacing: 1.5em !default;
+    $action-color: #477DCA !default;
+    $dark-gray: #333 !default;
+    $base-font-color: $dark-gray !default;
+    $blog-post-gutter: 1.4em;
+    $blog-post-image-padding: 0.7em;
+    $blog-post-image-width: 4em;
+    $blog-post-color: $base-font-color;
+    $blog-post-background: lighten($action-color, 15%);
+    $blog-post-detail-color: transparentize($blog-post-color, 0.5);
+    $blog-post-image-vert-alignment: top;
+
+    @include outer-container;
+
+    border-top: 1px solid transparentize($blog-post-color, 0.9);
+    margin: 2em 0;
+
+    @include respond-to(xlarge) {
+        margin: 5em 0;
+    }
+
+    .blog-post {
+        @include span-columns(12);
+
+        border-bottom: 1px solid transparentize($blog-post-color, 0.9);
+        display: table;
+        margin: $base-spacing 0 0;
+        padding: 0 2em 1em;
+        width: 100%;
+
+        .blog-post-image,
+        .blog-post-content {
+            display: table-cell;
+            vertical-align: $blog-post-image-vert-alignment;
+        }
+
+        .blog-post-image {
+            padding-right: $blog-post-gutter;
+
+            > img {
+                background: $blog-post-background;
+                border-radius: $base-border-radius;
+                display: block;
+                height: auto;
+                max-width: none;
+                padding: $blog-post-image-padding;
+                width: $blog-post-image-width;
+            }
+
+            .blog-post-reverse-order & {
+                padding-right: 0;
+                padding-left: 10px;
+            }
+        }
+
+        .blog-post-content {
+            width: 100%;
+
+            h1 {
+                font-size: 1em;
+                margin: 0 0 0.5em 0;
+            }
+
+            p {
+                line-height: 1.5em;
+                margin-bottom: 0.5em;
+            }
+
+            p.blog-post-detail {
+                color: $blog-post-detail-color;
+                font-size: 0.9em;
+                font-style: italic;
+            }
+        }
+    }
+}

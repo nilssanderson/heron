@@ -1,0 +1,161 @@
+@mixin grid-item-columns($columns) {
+    width: (100% / 12) * $columns;
+}
+
+.grid-items {
+    $action-color: #477DCA !default;
+    $base-background-color: white !default;
+    $grid-items-background: $base-background-color;
+    $grid-item-background: desaturate($action-color, 30%);
+    $grid-item-colors:
+        desaturate($action-color, 30%),
+        #3581A5,
+        #5FBEBE,
+        #98C79A,
+        #A7A891,
+        #BDCC97,
+        #979EA0;
+    $grid-item-border-size: 9px;
+    $grid-item-color: white;
+    $grid-item-height: 14em;
+
+    @include outer-container;
+    @include clearfix;
+
+    margin: 5em 0;
+    padding: 0 1em;
+
+    @include respond-to(xlarge) {
+        padding: 0;
+    }
+
+    &.small {
+        .grid-item {
+            @include respond-to(xlarge) {
+                @include span-columns(4);
+
+                &:nth-of-type(3n) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &.medium {
+        .grid-item {
+            @include respond-to(xlarge) {
+                @include span-columns(6);
+
+                &:nth-of-type(2n) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &.large {
+        .grid-item {
+            @include respond-to(xlarge) {
+                @include span-columns(9);
+
+                &:nth-of-type(2n) {
+                    @include span-columns(9);
+                    @include shift(3);
+                }
+            }
+        }
+    }
+
+    .grid-item {
+        @include transition (all 0.2s ease-in-out);
+        background: $grid-item-background;
+        border-bottom: $grid-item-border-size solid $grid-items-background;
+        border-left: ($grid-item-border-size / 2) solid $grid-items-background;
+        border-right: ($grid-item-border-size / 2) solid $grid-items-background;
+        border-top: 0;
+        cursor: pointer;
+        float: left;
+        height: $grid-item-height;
+        overflow: hidden;
+        outline: none;
+        margin-bottom: .5em;
+        padding: 2em;
+        text-align: center;
+        text-decoration: none;
+        @include span-columns(12);
+
+        @include respond-to(xlarge) {
+            margin-bottom: 1em;
+        }
+
+        @for $i from 1 through length($grid-item-colors) { // assign colors from $grid-item-colors list
+            &:nth-child(#{$i}) {
+                $background-from-list: nth($grid-item-colors, $i);
+                background-color: $background-from-list;
+                box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10%);
+
+                &:focus,
+                &:hover {
+                    background-color: darken($background-from-list, 10%);
+                    background-repeat: no-repeat;
+                    background-position: top;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+
+    .grid-item img {
+        display: block;
+        height: 3em;
+        margin: 0 auto 1em;
+    }
+
+    .grid-item h1 {
+        color: $grid-item-color;
+        font-size: 1.3em;
+        margin-bottom: 0.4em;
+    }
+
+    .grid-item p {
+        color: transparentize($grid-item-color, 0.3);
+        line-height: 1.5em;
+        margin: auto;
+
+        @include media($medium) {
+            max-width: 70%;
+        }
+    }
+
+    .grid-item-big {
+        @include media($large) {
+            @include span-columns(8);
+        }
+
+        p {
+            @include media($medium) {
+                max-width: 60%;
+            }
+        }
+    }
+
+    .grid-item-medium {
+        @include media($large) {
+            @include span-columns(6);
+        }
+
+        p {
+            @include media($medium) {
+                max-width: 60%;
+            }
+        }
+    }
+
+    .grid-item-image {
+        background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+        background-color: $grid-item-background;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
